@@ -39,6 +39,7 @@ public class PatientServiceImpl implements PatientService {
 
     @Override
     public void deletePatient(Long id) {
+        getPatientById(id);
         repo.deleteById(id);
     }
 
