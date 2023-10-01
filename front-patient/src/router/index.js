@@ -13,6 +13,11 @@ const routes = [
     path:'/create',
     name:'FormCreatePatient',
     component: () => import('../views/FormCreatePatient.vue')
+  },
+  {
+    path:'/edit/:id',
+    name:'edit',
+    component: () => import('../views/FormUpdatePatient.vue')
   }
 ]
 
