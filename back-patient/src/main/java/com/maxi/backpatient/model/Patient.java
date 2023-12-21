@@ -1,13 +1,19 @@
 package com.maxi.backpatient.model;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import com.maxi.backpatient.enums.UserGender;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
@@ -46,6 +52,11 @@ public class Patient {
     private LocalDate registDate;
 
     private String diagnosis;
+
+    @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+    @JoinTable(name = "patient_consultation", joinColumns = { @JoinColumn(name = "patient_id") }, inverseJoinColumns = {
+            @JoinColumn(name = "consultation_id") })
+    private List<Consultation> consultations;
 
     public Patient() {
     }
