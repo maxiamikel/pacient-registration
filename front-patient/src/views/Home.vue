@@ -21,7 +21,7 @@
                         <tbody>
                             <tr v-for="patient in patients" :key="patient.id">
                                 <th scope="row">{{patient.id}}</th>
-                                <td>{{patient.name}}</td>
+                                <td><a :href="`/details/${patient.id}`" class="link-name"> {{patient.name}} </a></td>
                                 <td>{{patient.personalNumber}}</td>
                                 <td>{{patient.email}}</td>
                                 <td>{{patient.telephone}}</td>
@@ -89,5 +89,13 @@ export default{
 </script>
 
 <style scoped>
+    .link-name{
+        text-decoration: none;
+        color: #333;
+    }
 
+    .link-name:hover{
+        text-decoration:nome;
+        color: #fac000;
+    }
 </style>

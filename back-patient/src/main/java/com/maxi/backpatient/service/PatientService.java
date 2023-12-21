@@ -11,13 +11,15 @@ import com.maxi.backpatient.model.Patient;
 
 public interface PatientService {
 
-    public Patient addPatient(Patient patient);
+    public Patient addPatient(PatientDTO patient);
 
-    public Patient getPatientById(Long id);
+    public PatientDTO getPatientById(Long id);
 
-    public Patient updatePatient(Long id, PatientDTO patientDTO);
+    // public Patient findtById(Long id);
 
-    public List<Patient> getPatients();
+    public void updatePatient(Long id, PatientDTO patientDTO);
+
+    public List<PatientDTO> findAll();
 
     public void deletePatient(Long id);
 

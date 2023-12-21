@@ -3,7 +3,7 @@
          <div class="my-5">
             <div class="mx-auto w-25" style="max-width:100%;">
                 <h3 class="text-center mb-3">Edit Patient [{{patient.id}}]</h3>
-                <form @submit.prevent="updatePatient">
+                <form @submit="updatePatient">
                     <div class="row">
                         <div class="col-md-12 form-group mb-3">
                             <label for="name" class="form-label">Name</label>
@@ -74,7 +74,8 @@ export default {
                 this.patient = data
             })
         },
-        updatePatient(){
+        updatePatient(e){
+            e.preventDefault();
             fetch(`http://localhost:8080/patients/update/${this.$route.params.id}`,{
                 method:'PUT',
                 headers:{

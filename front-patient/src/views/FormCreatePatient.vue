@@ -41,6 +41,16 @@
                             <input type="text" name="email" class="form-control" placeholder="Ex: amikelmaxi@email.com" required v-model="patient.email">
                         </div>
 
+                        <div class="col-md-12 form-group mb-3">
+                            <label for="birthday" class="form-label">Birth date</label>
+                            <input type="date" name="birthDate" class="form-control"  required v-model="patient.birthDate">
+                        </div>
+                        <input type="hidden" name="registDate"/>
+                        <div class="col-md-12 form-group mb-3">
+                            <label for="diagnosis" class="form-label">Birth date</label>
+                            <input type="text" name="diagnosis" class="form-control" placeholder="Diagnosis"  required v-model="patient.diagnosis">
+                        </div>
+
                          <div class="col-md-12 form-group mb-3">
                             <input type="submit" value="Submit" class="btn btn-primary w-100">
                         </div>
@@ -65,9 +75,13 @@ export default {
             personalNumber:'',
             email:'',
             telephone:'',
-            gender:''
+            gender:'',
+            birthDate:'',
+            registDate:'',
+            diagnosis:''
         }
     }
+    
    },
    methods: {
     addPatient(){
